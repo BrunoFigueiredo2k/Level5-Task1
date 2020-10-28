@@ -1,36 +1,29 @@
-package com.example.level5_example.ui
+package com.example.level5_task1.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.level5_example.R
-import com.example.level5_example.repository.ReminderRepository
-import com.example.level5_example.model.Reminder
+import com.example.level5_task1.R
+import com.example.level5_task1.model.Note
 import kotlinx.android.synthetic.main.fragment_reminders.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class RemindersFragment : Fragment() {
-    private val reminders = arrayListOf<Reminder>()
+class NotepadFragment : Fragment() {
+    private val reminders = arrayListOf<Note>()
     private val reminderAdapter =
-        ReminderAdapter(reminders)
+        NotepadAdapter(reminders)
 
-    private val viewModel: ReminderViewModel by viewModels()
+    private val viewModel: NotepadViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -60,8 +53,8 @@ class RemindersFragment : Fragment() {
 
     private fun observeAddReminderResult() {
         viewModel.reminders.observe(viewLifecycleOwner, Observer { reminders ->
-            this@RemindersFragment.reminders.clear()
-            this@RemindersFragment.reminders.addAll(reminders)
+            this@NotepadFragment.reminders.clear()
+            this@NotepadFragment.reminders.addAll(reminders)
             reminderAdapter.notifyDataSetChanged()
         })
     }

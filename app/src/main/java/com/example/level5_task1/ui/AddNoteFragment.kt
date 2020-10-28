@@ -1,4 +1,4 @@
-package com.example.level5_example.ui
+package com.example.level5_task1.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,17 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.level5_example.R
-import com.example.level5_example.model.Reminder
+import com.example.level5_task1.R
+import com.example.level5_task1.model.Note
 import kotlinx.android.synthetic.main.fragment_add_reminder.*
 
-class AddReminderFragment : Fragment() {
+class AddNoteFragment : Fragment() {
 
-    private val viewModel: ReminderViewModel by viewModels()
+    private val viewModel: NotepadViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +38,7 @@ class AddReminderFragment : Fragment() {
 
         // Check if submitted unput is not empty
         if (reminderText.isNotBlank()){
-            viewModel.insertReminder(Reminder(reminderText))
+            viewModel.insertReminder(Note(reminderText))
 
             // Destroy current fragment to go back to home fragment (RemindersFragment.kt)
             findNavController().popBackStack()

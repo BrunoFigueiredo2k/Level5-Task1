@@ -1,14 +1,14 @@
-package com.example.level5_example.ui
+package com.example.level5_task1.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.level5_example.R
-import com.example.level5_example.model.Reminder
+import com.example.level5_task1.R
+import com.example.level5_task1.model.Note
 import kotlinx.android.synthetic.main.item_reminder.view.*
 
-class ReminderAdapter(private val reminders: List<Reminder>) : RecyclerView.Adapter<ReminderAdapter.ViewHolder>(){
+class NotepadAdapter(private val reminders: List<Note>) : RecyclerView.Adapter<NotepadAdapter.ViewHolder>(){
 
     /** Creates and returns a ViewHolder object, inflating a standard layout called simple_list_item_1.*/
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,7 +28,7 @@ class ReminderAdapter(private val reminders: List<Reminder>) : RecyclerView.Adap
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun databind(reminder: Reminder) {
+        fun databind(reminder: Note) {
             itemView.tvReminder.text = reminder.reminderText
         }
     }

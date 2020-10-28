@@ -1,10 +1,10 @@
-package com.example.level5_example.model
+package com.example.level5_task1.model
 
 import androidx.room.*
 
 /** Data class called Reminder which has a String representing the reminder **/
 @Entity(tableName = "reminderTable")
-data class Reminder(
+data class Note(
 
     @ColumnInfo(name = "reminder")
     var reminderText: String,
