@@ -5,7 +5,7 @@ import androidx.room.*
 import com.example.level5_task1.model.Note
 
 @Dao
-interface NotepadDao {
+interface NoteDao {
 
     @Query("SELECT * FROM reminderTable")
     fun getAllReminders(): LiveData<List<Note>>
